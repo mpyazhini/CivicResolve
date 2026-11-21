@@ -1,170 +1,265 @@
 # CivicResolve 🏛️✨
 ### AI-Powered Citizen Grievance Management and Resolution Platform
-**PromptWars x GDGoC PSG iTech 2026 Hackathon**
+
+**Built for PromptWars × GDGoC PSG iTech 2026 Hackathon**
+
+🌐 **Live Demo:** https://civicresolve-2026.web.app  
+💻 **GitHub Repository:** https://github.com/mpyazhini/CivicResolve
 
 ---
 
 ## 📌 Problem Statement
-> **"AI-Powered Citizen Grievance Management and Resolution"**
 
-Traditional municipal grievance mechanisms suffer from unstructured citizen reports, manual triage delays, misrouted departmental tickets, lack of public safety prioritization, and zero transparency for citizens. 
+**AI-Powered Citizen Grievance Management and Resolution**
 
-**CivicResolve** transforms municipal governance into an intelligent, transparent, and proactive civic dispatch system powered by **Google Firebase** and **Gemini AI**.
+Traditional civic grievance systems often face challenges such as unstructured citizen reports, delayed manual verification, incorrect departmental routing, difficulty identifying urgent public-safety issues, and limited transparency during complaint resolution.
+
+**CivicResolve** aims to improve this process through an intelligent civic grievance management platform that combines AI-assisted complaint analysis, public participation, priority assessment, and transparent resolution tracking.
 
 ---
 
 ## 🚀 Key Features
 
 ### 1. Intelligent Citizen Grievance Submission
-- **Natural Language Reporting:** Citizens can report issues using colloquial language with titles, descriptions, landmarks, or GPS coordinates.
-- **Multimodal Visual Evidence:** Upload photos of broken roads, exposed wires, or burst pipelines analyzed directly by Gemini multimodal vision.
-- **Real-Time Gemini AI Triage:** Instant classification into 7 municipal categories, urgency assessment, and recommended department routing before submission.
-- **Quick Demo Fill:** One-click presets for Coimbatore landmarks (PSG iTech Campus, Peelamedu, Gandhipuram, RS Puram, Saravanampatti) for hackathon evaluation.
+- Submit civic complaints using natural-language descriptions.
+- Provide issue categories, locations, landmarks, and supporting information.
+- Upload visual evidence to help communicate the reported problem.
+- Use convenient demo location presets for Coimbatore.
 
-### 2. Gemini AI Classification & Department Routing
-- Automatically routes grievances to the responsible municipal department:
-  - *Public Works & Road Infrastructure* (PWD-ROADS)
-  - *Municipal Water Supply & Sewage Board* (MWSSB-WATER)
-  - *Electricity Distribution & Street Lighting* (TANGEDCO)
-  - *City Sanitation & Solid Waste Management* (SWM-CLEAN)
-  - *Public Health, Vector Control & Safety* (PHD-SAFETY)
-  - *City Traffic Engineering & Transport Department* (TED-TRANSIT)
-  - *Municipal General Administration & Ward Governance* (MGA-CIVIC)
+### 2. AI-Assisted Classification and Department Routing
+CivicResolve is designed to classify complaints into seven municipal categories and recommend the relevant department:
 
-### 3. Automatic Urgency & Public Impact Scoring
-- Multi-factor risk decomposition (Score 0 to 100):
-  - **Safety Danger Score (0–40):** Evaluates imminent physical peril (e.g. exposed live cables, open manholes).
-  - **Footfall & Community Exposure (0–30):** Assesses pedestrian density, school/hospital zones, and arterial highways.
-  - **Escalation & Cascading Risk (0–30):** Analyzes potential for structural collapse, water loss, or disease outbreaks.
-- Automated SLA targets:
-  - `CRITICAL`: 6–12 Hours (Dispatched immediately to mobile squads)
-  - `HIGH`: 12–24 Hours
-  - `MEDIUM`: 24–48 Hours
-  - `LOW`: 48–120 Hours
+| Category | Department |
+|---|---|
+| Roads and Infrastructure | PWD-ROADS |
+| Water Supply and Sewage | MWSSB-WATER |
+| Electricity and Street Lighting | TANGEDCO |
+| Sanitation and Waste Management | SWM-CLEAN |
+| Public Health and Safety | PHD-SAFETY |
+| Traffic and Transportation | TED-TRANSIT |
+| General Civic Administration | MGA-CIVIC |
+
+Gemini AI integration supports intelligent complaint analysis. A heuristic-based fallback can also assist with classification and prioritisation when AI services are unavailable or not configured.
+
+### 3. Multi-Factor Urgency and Public Impact Scoring
+
+A risk-scoring approach evaluates reported issues using three major factors, contributing to a score from 0 to 100:
+
+- **Safety Danger (0–40):** Considers immediate risks to people, such as exposed electrical wires and open manholes.
+- **Footfall and Community Exposure (0–30):** Considers how many people may be affected, including pedestrians and people near schools, hospitals, and busy roads.
+- **Escalation and Cascading Risk (0–30):** Considers whether an issue could become more serious, such as structural damage, water loss, or disease outbreaks.
+
+The resulting priority levels are associated with proposed response targets:
+
+| Priority | Target Response Window |
+|---|---|
+| CRITICAL | 6–12 hours |
+| HIGH | 12–24 hours |
+| MEDIUM | 24–48 hours |
+| LOW | 48–120 hours |
+
+These are proposed operational targets, not guaranteed real-world municipal response times.
 
 ### 4. Smart Duplicate Grievance Detection
-- **Civic Entity Similarity Engine:** Tokenizes grievance keywords, localities, and categories against active unresolved complaints.
-- Alerts the citizen if a similar issue was reported nearby (e.g. *“2 similar grievances detected in this area!”*).
-- Empowers citizens to **Endorse / Upvote** the existing ticket instead of cluttering the system with duplicate tickets.
+- Compares complaint keywords, categories, and locations.
+- Identifies potentially similar unresolved complaints.
+- Alerts citizens when a similar issue may already exist.
+- Encourages citizens to support an existing complaint rather than repeatedly submitting the same issue.
 
-### 5. Community Endorsement (Crowdsourced Impact Escalation)
-- Each community upvote (+2 Impact Points) dynamically raises the ticket's priority in the city command queue.
+### 5. Community Endorsement
+- Citizens can endorse existing complaints through upvotes.
+- Community endorsements contribute to the public impact score.
+- Each upvote contributes 2 impact points, according to the scoring approach.
 
-### 6. End-to-End Resolution Tracking & Stepper
-- Unique Tracking Number generated for every ticket (e.g. `CIVIC-2026-8941`).
-- Transparent 4-stage lifecycle:
-  `Reported` ➔ `Acknowledged` ➔ `In Progress` ➔ `Resolved`
-- **Resolution Proof Photos:** Field teams upload visual evidence of completed repairs (e.g. patched asphalt, replaced luminaire).
-- **Citizen Satisfaction Rating:** Citizens verify the fix with 1–5 star ratings and feedback notes.
+### 6. Complaint Tracking and Resolution Workflow
+- Generates a unique tracking number for submitted complaints.
+- Provides a four-stage complaint lifecycle:
+
+  `Reported → Acknowledged → In Progress → Resolved`
+
+- Supports complaint status updates and resolution information.
+- Provides a structured way to follow the progress of reported issues.
 
 ### 7. Municipal Admin Command Center
-- Role-based municipal admin dashboard authenticated via **Firebase Authentication**.
-- Status management modal with engineer assignment, field remarks, and proof photo logging.
-- Complete audit trail of all status transitions with actor timestamps.
-- **Hackathon Demo Dataset Seeder:** One-click button to load or reset realistic municipal grievances.
+- Provides an administrator interface for managing grievances.
+- Supports complaint review and status management.
+- Includes options for recording assignment information and field remarks.
+- Provides demo-data functionality for hackathon evaluation.
 
-### 8. Analytics & SLA Monitoring
-- Real-time SLA compliance rate tracker.
-- Urgency distribution breakdown and department workload distribution.
-- Hotspot analysis across municipal wards.
+### 8. Analytics and SLA Monitoring
+- Presents complaint statistics and priority distribution.
+- Helps understand departmental workload.
+- Supports monitoring of complaint progress and response targets.
+- Provides an overview of reported civic issues.
 
-### 9. Accessibility
-- Text-to-Speech (TTS) engine reading aloud AI triage decisions for visually impaired citizens.
-- WCAG-compliant high-contrast badges, keyboard navigation, and responsive mobile-first design.
-
----
-
-## 🛠️ Google Technology Stack
-
-| Technology | Role in CivicResolve |
-| :--- | :--- |
-| **Firebase Firestore** | Real-time database storing complaints, audit timelines, citizen upvotes, and status logs in `asia-south1`. |
-| **Firebase Authentication** | Secure municipal administrator login and role verification. |
-| **Firebase AI Logic & Gemini** | Client-side generative AI integration calling Gemini models (`gemini-2.5-flash`) for automated classification, urgency detection, and multimodal analysis. |
-| **Firebase Hosting** | Single-page application deployment for production delivery. |
-| **React 18 + Vite** | High-performance responsive frontend application. |
-| **Tailwind CSS + Lucide Icons** | Clean, accessible civic design system. |
+### 9. Accessibility and User Experience
+- Responsive interface for different screen sizes.
+- Clear visual priority indicators.
+- Text-to-speech support for relevant information.
+- User-friendly navigation and complaint tracking.
 
 ---
 
-## 📋 Firebase Project Configuration
+## 🛠️ Technology Stack
 
-- **Firebase Project ID:** `civicresolve-2026`
-- **Firestore Database Location:** `asia-south1`
-- **Firebase Web App ID:** `1:1095308371394:web:97deee33437b4c1254a25b`
-- **Hosting Target:** `dist/` configured in `firebase.json`
-
----
-
-## ⚙️ Manual Setup Checklist (Firebase Console)
-
-To ensure all Firebase services are active for live deployment:
-
-### 1. Cloud Firestore
-1. Go to [Firebase Console](https://console.firebase.google.com/) ➔ Project `civicresolve-2026`.
-2. Navigate to **Build > Firestore Database**.
-3. If not already created, click **Create database** and select location **asia-south1**.
-4. The security rules in `firestore.rules` will automatically enforce role-based access upon running:
-   ```bash
-   firebase deploy --only firestore:rules,firestore:indexes
-   ```
-
-### 2. Firebase Authentication
-1. In Firebase Console, go to **Build > Authentication > Sign-in method**.
-2. Click **Add new provider** ➔ Select **Email/Password** ➔ Enable and Save.
-3. *Note:* For quick hackathon testing, the app also includes a **"One-Click Enter as Demo Admin"** option inside the login modal.
-
-### 3. Firebase AI Logic (Gemini Developer API)
-1. In your terminal inside this project directory, run:
-   ```bash
-   npx -y firebase-tools@latest init ailogic
-   ```
-   Select `civicresolve-2026` and the `CivicResolve Web` app. This activates the Gemini Developer API on the project.
-2. *Guaranteed Reliability:* Even if Firebase AI Logic is in the process of being provisioned in Google Cloud, CivicResolve features a built-in **High-Precision Municipal Heuristic Engine** that provides 100% functional classification, urgency scoring, and department routing with zero downtime or crashes.
-3. *Google AI Studio Testing:* You can also click the **"AI Engine"** button in the navbar to enter an optional Google AI Studio Gemini API key during judge evaluation.
+| Technology | Purpose |
+|---|---|
+| React 18 | Frontend application |
+| Vite | Development server and production build |
+| Tailwind CSS | Responsive styling |
+| Lucide React | Interface icons |
+| Firebase Firestore | Complaint data storage and synchronization |
+| Firebase Authentication | Administrator authentication |
+| Firebase AI Logic | Integration with generative AI services |
+| Gemini AI | AI-assisted complaint analysis |
+| Firebase Hosting | Application deployment |
 
 ---
 
-## 💻 Local Development & Build
+## 🏗️ System Architecture
 
-### Install dependencies
+```text
+             CITIZEN
+                |
+                v
+       CivicResolve Web App
+           (React + Vite)
+                |
+       +--------+--------+
+       |                 |
+       v                 v
+ Complaint Analysis   Complaint
+   Gemini / Rules     Submission
+       |                 |
+       +--------+--------+
+                |
+                v
+          Firebase
+       +--------+--------+
+       |                 |
+       v                 v
+    Firestore       Authentication
+       |
+       v
+  Complaint Management
+       |
+       +------------------+
+       |                  |
+       v                  v
+  Admin Interface    Public Tracking
+       |
+       v
+  Status and Priority
+      Monitoring
+```
+
+---
+
+## 🔥 Firebase Configuration
+
+| Configuration | Value |
+|---|---|
+| Firebase Project | `civicresolve-2026` |
+| Firestore Region | `asia-south1` |
+| Hosting | Firebase Hosting |
+| Build Directory | `dist/` |
+
+The application uses Firebase services for data management, authentication, and hosting. Firebase AI Logic integration requires the corresponding service and model configuration to be enabled.
+
+---
+
+## 💻 Local Installation and Setup
+
+### Prerequisites
+- Node.js and npm
+- Git
+- Firebase project
+- Firebase CLI
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/mpyazhini/CivicResolve.git
+cd CivicResolve
+```
+
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-### Run local development server
+### 3. Configure Firebase
+
+Configure the Firebase web application settings using environment variables where required. Do not commit private credentials or API secrets to the repository.
+
+### 4. Start the development server
+
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173` in your browser.
 
-### Build for Production
+Open the local URL displayed by Vite, normally:
+
+`http://localhost:5173`
+
+### 5. Create a production build
+
 ```bash
 npm run build
 ```
-Generates the optimized production bundle in `dist/`.
 
-### Deploy to Firebase
-```bash
-firebase deploy
-```
-or deploy individual features:
+The production files are generated inside the `dist/` directory.
+
+### 6. Deploy to Firebase Hosting
+
 ```bash
 firebase deploy --only hosting
-firebase deploy --only firestore:rules,firestore:indexes
 ```
 
 ---
 
-## 👥 Hackathon Evaluation Alignment
+## 🔐 Security Considerations
 
-| Evaluation Criterion | Implementation in CivicResolve |
-| :--- | :--- |
-| **Code Quality** | Modular React architecture with dedicated services (`geminiService.js`, `complaintService.js`), reusable UI components, clean state management, and zero clutter. |
-| **Efficiency** | Real-time `onSnapshot` listeners with optimistic localStorage caching, client-side deduplication tokenization, fast Vite builds. |
-| **Accessibility** | Text-to-speech audio reader, keyboard-navigable modals, high-contrast badges, mobile-responsive layout. |
-| **Problem Statement** | 100% focused on municipal grievance management, triage, and transparent resolution tracking. |
-| **Security** | Restrictive `firestore.rules` preventing unauthorized updates/deletions; zero committed API secrets; input validation. |
-| **Testing** | Complete citizen submission, duplicate detection, upvoting, admin status lifecycle, and production build tested and verified. |
-| **Google Tech** | Prominent integration of Firebase (Firestore, Auth, Hosting) and Gemini AI. |
-| **Innovation** | Public Impact Scoring algorithm, duplicate grievance warning, community endorsement upvoting, and photo-verified resolution audit trails. |
+- Firebase Authentication is used for administrator sign-in.
+- Firebase configuration and access rules should be reviewed before production deployment.
+- Demo access is intended for hackathon evaluation.
+- Public-facing demonstration configurations should not be treated as production-grade access control.
+- API secrets and private service-account credentials must never be committed to GitHub.
+
+**Note:** Before using CivicResolve in a real municipal environment, Firestore security rules, administrator authorization, data validation, and access permissions must be strengthened and independently reviewed.
+
+---
+
+## 🎯 Hackathon Evaluation Alignment
+
+| Evaluation Area | CivicResolve Approach |
+|---|---|
+| Problem Relevance | Addresses civic grievance reporting and resolution |
+| Innovation | AI-assisted complaint classification and duplicate detection |
+| Intelligent Prioritisation | Multi-factor public impact and urgency scoring |
+| Community Participation | Complaint endorsement and upvoting |
+| Google Technologies | Firebase services and Gemini AI integration |
+| User Experience | Responsive complaint submission and tracking |
+| Analytics | Priority distribution and complaint monitoring |
+| Scalability Potential | Modular frontend and cloud-based backend architecture |
+
+---
+
+## 🌍 Vision
+
+CivicResolve envisions a more transparent, responsive, and citizen-focused approach to civic issue management.
+
+By combining intelligent complaint analysis, community participation, and structured resolution workflows, the platform aims to help civic authorities identify important issues and respond more effectively.
+
+**Report smarter. Prioritise better. Resolve faster.**
+
+---
+
+## 👩‍💻 Project Information
+
+**Project:** CivicResolve  
+**Event:** PromptWars × GDGoC PSG iTech 2026 Hackathon  
+**Domain:** AI for Smart Governance  
+**Repository:** https://github.com/mpyazhini/CivicResolve  
+**Live Application:** https://civicresolve-2026.web.app
