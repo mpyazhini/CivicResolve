@@ -100,6 +100,14 @@ These are proposed operational targets, not guaranteed real-world municipal resp
 
 ---
 
+## 📸 Application Screenshots
+
+### Homepage
+
+![CivicResolve Homepage](screenshots/homepage.png)
+
+---
+
 ## 🛠️ Technology Stack
 
 | Technology | Purpose |
@@ -111,155 +119,4 @@ These are proposed operational targets, not guaranteed real-world municipal resp
 | Firebase Firestore | Complaint data storage and synchronization |
 | Firebase Authentication | Administrator authentication |
 | Firebase AI Logic | Integration with generative AI services |
-| Gemini AI | AI-assisted complaint analysis |
-| Firebase Hosting | Application deployment |
-
----
-
-## 🏗️ System Architecture
-
-```text
-             CITIZEN
-                |
-                v
-       CivicResolve Web App
-           (React + Vite)
-                |
-       +--------+--------+
-       |                 |
-       v                 v
- Complaint Analysis   Complaint
-   Gemini / Rules     Submission
-       |                 |
-       +--------+--------+
-                |
-                v
-          Firebase
-       +--------+--------+
-       |                 |
-       v                 v
-    Firestore       Authentication
-       |
-       v
-  Complaint Management
-       |
-       +------------------+
-       |                  |
-       v                  v
-  Admin Interface    Public Tracking
-       |
-       v
-  Status and Priority
-      Monitoring
-```
-
----
-
-## 🔥 Firebase Configuration
-
-| Configuration | Value |
-|---|---|
-| Firebase Project | `civicresolve-2026` |
-| Firestore Region | `asia-south1` |
-| Hosting | Firebase Hosting |
-| Build Directory | `dist/` |
-
-The application uses Firebase services for data management, authentication, and hosting. Firebase AI Logic integration requires the corresponding service and model configuration to be enabled.
-
----
-
-## 💻 Local Installation and Setup
-
-### Prerequisites
-- Node.js and npm
-- Git
-- Firebase project
-- Firebase CLI
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/mpyazhini/CivicResolve.git
-cd CivicResolve
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure Firebase
-
-Configure the Firebase web application settings using environment variables where required. Do not commit private credentials or API secrets to the repository.
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-Open the local URL displayed by Vite, normally:
-
-`http://localhost:5173`
-
-### 5. Create a production build
-
-```bash
-npm run build
-```
-
-The production files are generated inside the `dist/` directory.
-
-### 6. Deploy to Firebase Hosting
-
-```bash
-firebase deploy --only hosting
-```
-
----
-
-## 🔐 Security Considerations
-
-- Firebase Authentication is used for administrator sign-in.
-- Firebase configuration and access rules should be reviewed before production deployment.
-- Demo access is intended for hackathon evaluation.
-- Public-facing demonstration configurations should not be treated as production-grade access control.
-- API secrets and private service-account credentials must never be committed to GitHub.
-
-**Note:** Before using CivicResolve in a real municipal environment, Firestore security rules, administrator authorization, data validation, and access permissions must be strengthened and independently reviewed.
-
----
-
-## 🎯 Hackathon Evaluation Alignment
-
-| Evaluation Area | CivicResolve Approach |
-|---|---|
-| Problem Relevance | Addresses civic grievance reporting and resolution |
-| Innovation | AI-assisted complaint classification and duplicate detection |
-| Intelligent Prioritisation | Multi-factor public impact and urgency scoring |
-| Community Participation | Complaint endorsement and upvoting |
-| Google Technologies | Firebase services and Gemini AI integration |
-| User Experience | Responsive complaint submission and tracking |
-| Analytics | Priority distribution and complaint monitoring |
-| Scalability Potential | Modular frontend and cloud-based backend architecture |
-
----
-
-## 🌍 Vision
-
-CivicResolve envisions a more transparent, responsive, and citizen-focused approach to civic issue management.
-
-By combining intelligent complaint analysis, community participation, and structured resolution workflows, the platform aims to help civic authorities identify important issues and respond more effectively.
-
-**Report smarter. Prioritise better. Resolve faster.**
-
----
-
-## 👩‍💻 Project Information
-
-**Project:** CivicResolve  
-**Event:** PromptWars × GDGoC PSG iTech 2026 Hackathon  
-**Domain:** AI for Smart Governance  
-**Repository:** https://github.com/mpyazhini/CivicResolve  
-**Live Application:** https://civicresolve-2026.web.app
+| Gemini AI
